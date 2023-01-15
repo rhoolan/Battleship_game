@@ -2,7 +2,7 @@ require_relative "board"
 require_relative "player"
 
 class Battleship
-    attr_reader :board, :player
+    attr_reader :board, :player, :remaining_misses
 
     def initialize(length)
         @player = Player.new
@@ -36,5 +36,17 @@ class Battleship
 
     def game_over?
         win? || lose?
+    end
+
+    def turn 
+        pos = player.get_move
+        if board.attack(pos)
+            board.print
+            print @remaining_misses
+        else 
+            @remaining_misses -= 1
+            board.print
+            print @remaining_misses
+        end
     end
 end
