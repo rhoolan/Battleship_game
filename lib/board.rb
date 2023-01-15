@@ -1,8 +1,9 @@
 class Board
-    attr_reader :size
+    attr_reader :size, :boardsize
 
     def initialize(boardsize)
         @grid = Array.new(boardsize) {Array.new(boardsize, :N)}
+        @boardsize = boardsize
         @size = boardsize * boardsize
     end
 
@@ -44,4 +45,14 @@ class Board
             return false
         end
     end
+
+    def place_random_ships
+        while self.num_ships < @size / 4
+            row = rand(0...@boardsize)
+            col = rand(0...@boardsize)
+
+            self[[row, col]] = :S
+        end
+    end
+
 end
