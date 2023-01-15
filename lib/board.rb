@@ -32,4 +32,16 @@ class Board
         ship_count
     end
 
+    #part 2
+
+    def attack(position)
+        if self[position] == :S
+            self[position]= :H
+            puts "You sunk my battleship!"
+            return true
+        elsif self[position] != :S
+            self[position]= :X
+            return false
+        end
+    end
 end
