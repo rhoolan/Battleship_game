@@ -19,4 +19,17 @@ class Board
 
         @grid[row][colum] = value
     end
+
+    def num_ships
+        ship_count = 0
+
+        @grid.each do |sub_array|
+            sub_array.each do |value|
+                ship_count += 1 if value == :S
+            end
+        end
+
+        ship_count
+    end
+
 end
