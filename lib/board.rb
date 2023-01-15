@@ -59,4 +59,7 @@ class Board
         @grid.map { |row| row.map { |ele| ele == :S ? :N : ele}}
     end
 
+    def self.print_grid(grid_array)
+        puts grid_array.map { |x| x.join(' ')}
+    end
 end
