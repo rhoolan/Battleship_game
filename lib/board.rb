@@ -62,4 +62,8 @@ class Board
     def self.print_grid(grid_array)
         puts grid_array.map { |x| x.join(' ')}
     end
+
+    def cheat 
+        Board.print_grid(@grid)
+    end
 end
